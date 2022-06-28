@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 class SideBarTile extends StatelessWidget {
   final String title;
   final GlobalKey scrollTo;
-  final bool popNavigator;
-  const SideBarTile(
-      {Key? key,
-      required this.title,
-      required this.scrollTo,
-      this.popNavigator = false})
-      : super(key: key);
+  const SideBarTile({
+    Key? key,
+    required this.title,
+    required this.scrollTo,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +15,7 @@ class SideBarTile extends StatelessWidget {
       title: Text(title),
       onTap: () {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (popNavigator) {
-            Navigator.pop(context);
-          }
+          Navigator.pop(context);
           if (scrollTo.currentContext != null) {
             Scrollable.ensureVisible(scrollTo.currentContext!,
                 duration: const Duration(milliseconds: 500));
@@ -30,35 +26,10 @@ class SideBarTile extends StatelessWidget {
   }
 }
 
-class DesktopSideBar extends StatelessWidget {
-  final List<Map> tiles;
-  const DesktopSideBar({
-    Key? key,
-    required this.width,
-    required this.scrollController,
-    required this.tiles,
-  }) : super(key: key);
-
-  final double width;
-  final ScrollController scrollController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).backgroundColor,
-      width: width, // Take up 25% of the screen
-      child: Column(
-          children: tiles
-              .map((t) => SideBarTile(title: t['title'], scrollTo: t['key']))
-              .toList()),
-    );
-  }
-}
-
-class MobileDrawer extends StatelessWidget {
+class AppDrawer extends StatelessWidget {
   final ScrollController scrollController;
   final List<Map> tiles;
-  const MobileDrawer(
+  const AppDrawer(
       {Key? key, required this.scrollController, required this.tiles})
       : super(key: key);
 
@@ -85,7 +56,6 @@ class MobileDrawer extends StatelessWidget {
                 return SideBarTile(
                   title: tile['title'],
                   scrollTo: tile['key'],
-                  popNavigator: true,
                 );
               }),
         ),
