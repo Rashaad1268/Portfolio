@@ -29,7 +29,7 @@ class _HoverCardState extends State<HoverCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.only(top: 5),
       child: MouseRegion(
           onEnter: (e) => setHoveringStatus(true),
           onExit: (e) => setHoveringStatus(false),
@@ -70,7 +70,6 @@ class ProjectCard extends StatelessWidget {
       height: height,
       width: width,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
           Align(
               alignment: Alignment.centerLeft,
@@ -79,13 +78,11 @@ class ProjectCard extends StatelessWidget {
                 child: Text(projectData['name'],
                     style: Theme.of(context).textTheme.headline4),
               )),
-          Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding:
-                    const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
-                child: Text(projectData['description'] ?? ''),
-              )),
+          Padding(
+            padding:
+                const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
+            child: Text(projectData['description'] ?? ''),
+          ),
           Row(
             children: [
               if ((projectData['github_url'] ?? '').isNotEmpty)
@@ -123,7 +120,9 @@ class TechnologyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return HoverCard(
       width: width,
-      child: Column(children: [
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
         Padding(padding: const EdgeInsets.all(8), child: icon),
         Padding(
           padding: const EdgeInsets.all(8),
