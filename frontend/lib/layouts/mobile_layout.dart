@@ -16,7 +16,7 @@ class MobileLayout extends StatelessWidget {
       appBar: AppBar(title: const AppBarTitleButton(), actions: const [
         ChangeThemeButton(),
       ]),
-      drawer: MobileDrawer(scrollController: scrollController, tiles: [
+      drawer: AppDrawer(scrollController: scrollController, tiles: [
         {
           'key': aboutMeKey,
           'title': 'About Me',

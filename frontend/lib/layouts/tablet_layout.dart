@@ -15,7 +15,7 @@ class TabletLayout extends StatelessWidget {
     return Scaffold(
       appBar:
           AppBar(title: const AppBarTitleButton(), actions: appBarActionIcons),
-      drawer: MobileDrawer(scrollController: scrollController, tiles: [
+      drawer: AppDrawer(scrollController: scrollController, tiles: [
         {
           'key': aboutMeKey,
           'title': 'About Me',
@@ -53,7 +53,7 @@ class TabletLayout extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: TimeLine(key: timelineKey, width: 500),
+            child: TimeLine(key: timelineKey, width: 650),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 8),
