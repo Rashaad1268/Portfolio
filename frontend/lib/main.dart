@@ -24,8 +24,11 @@ class MyApp extends ConsumerWidget {
             brightness: Brightness.light,
             snackBarTheme:
                 const SnackBarThemeData(behavior: SnackBarBehavior.floating)),
-        darkTheme:
-            ThemeData(fontFamily: 'JetBrainsMono', brightness: Brightness.dark),
+        darkTheme: ThemeData(
+            fontFamily: 'JetBrainsMono',
+            brightness: Brightness.dark,
+            snackBarTheme:
+                const SnackBarThemeData(behavior: SnackBarBehavior.floating)),
         themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
         home: Responsive(
           mobile: MobileLayout(),

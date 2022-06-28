@@ -1,24 +1,23 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:frontend/widgets/buttons.dart';
-import 'package:frontend/widgets/projects_list.dart';
+import 'package:frontend/widgets/widgets.dart';
 
-final hoverTransform = Matrix4.identity()..translate(1, -5, 0);
+// final hoverTransform = Matrix4.identity()..translate(1.5, -5, 3);
+final hoverTransform = Matrix4.identity()..translate(1.5, -10, 3);
 
-class ProjectCard extends StatefulWidget {
-  final Map projectData;
+class HoverCard extends StatefulWidget {
   final double? height;
   final double width;
-  const ProjectCard(this.projectData,
-      {Key? key, this.height, required this.width})
+  final Widget child;
+  const HoverCard(
+      {Key? key, required this.width, this.height, required this.child})
       : super(key: key);
 
   @override
-  State<ProjectCard> createState() => _ProjectCardState();
+  State<HoverCard> createState() => _HoverCardState();
 }
 
-class _ProjectCardState extends State<ProjectCard> {
+class _HoverCardState extends State<HoverCard> {
   bool isHovering = false;
 
   setHoveringStatus(bool status) {
@@ -29,84 +28,79 @@ class _ProjectCardState extends State<ProjectCard> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: widget.height,
-      width: isHovering ? widget.width + 10 : widget.width,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: MouseRegion(
-        onEnter: (e) => setHoveringStatus(true),
-        onExit: (e) => setHoveringStatus(false),
-        child: GestureDetector(
-          onTap: () {
-            showDialog(
-                context: context,
-                builder: (_) => ProjectDetail(
-                      widget.projectData,
-                    ));
-          },
-          onLongPress: () async {
-            if (isHovering) {
-              setHoveringStatus(false);
-            } else {
-              setHoveringStatus(true);
-              await Future.delayed(const Duration(seconds: 1), () {
-                setHoveringStatus(false);
-              });
-            }
-          },
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 600),
-            curve: Curves.fastOutSlowIn,
-            transform: isHovering ? hoverTransform : Matrix4.identity(),
-            child: Card(
-              elevation: isHovering ? 50 : null,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10)),
-                    child: CachedNetworkImage(
-                        imageUrl: widget.projectData['image_url'],
-                        fit: BoxFit.fill,
-                        placeholder: (context, _) =>
-                            const LinearProgressIndicator()),
-                  ),
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(widget.projectData['name'],
-                            style: Theme.of(context).textTheme.headline6),
-                      )),
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            right: 8.0, left: 8.0, bottom: 8.0),
-                        child: Text(widget.projectData['description'] ?? ''),
-                      )),
-                  Row(
-                    children: [
-                      if ((widget.projectData['github_url'] ?? '').isNotEmpty)
-                        LinkIcon(
-                          icon: const FaIcon(FontAwesomeIcons.github),
-                          url: widget.projectData['github_url'],
-                        ),
-                      if (widget.projectData['site'] != null)
-                        LinkIcon(
-                          icon: const Icon(Icons.web),
-                          url: widget.projectData['site'],
-                        ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
+          onEnter: (e) => setHoveringStatus(true),
+          onExit: (e) => setHoveringStatus(false),
+          child: GestureDetector(
+              onTap: () async {
+                if (isHovering) {
+                  setHoveringStatus(false);
+                } else {
+                  setHoveringStatus(true);
+                  await Future.delayed(const Duration(seconds: 1), () {
+                    setHoveringStatus(false);
+                  });
+                }
+              },
+              child: AnimatedContainer(
+                  height: widget.height,
+                  width: isHovering ? widget.width + 20 : widget.width,
+                  duration: const Duration(milliseconds: 400),
+                  curve: Curves.fastOutSlowIn,
+                  transform: isHovering ? hoverTransform : Matrix4.identity(),
+                  child: Card(
+                      elevation: isHovering ? 30 : 0, child: widget.child)))),
+    );
+  }
+}
+
+class ProjectCard extends StatelessWidget {
+  final Map projectData;
+  final double? height;
+  final double width;
+  const ProjectCard(this.projectData,
+      {Key? key, this.height, required this.width})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return HoverCard(
+      height: height,
+      width: width,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(projectData['name'],
+                    style: Theme.of(context).textTheme.headline4),
+              )),
+          Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding:
+                    const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
+                child: Text(projectData['description'] ?? ''),
+              )),
+          Row(
+            children: [
+              if ((projectData['github_url'] ?? '').isNotEmpty)
+                LinkIcon(
+                  icon: const FaIcon(FontAwesomeIcons.github),
+                  url: projectData['github_url'],
+                ),
+              if (projectData['site'] != null)
+                LinkIcon(
+                  icon: const Icon(Icons.web),
+                  url: projectData['site'],
+                ),
+            ],
+          )
+        ],
       ),
     );
   }
@@ -127,21 +121,68 @@ class TechnologyCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return HoverCard(
       width: width,
-      child: Card(
-        child: Column(children: [
-          Padding(padding: const EdgeInsets.all(8), child: icon),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Text(title, style: Theme.of(context).textTheme.headline6),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
-            child: child,
-          )
-        ]),
-      ),
+      child: Column(children: [
+        Padding(padding: const EdgeInsets.all(8), child: icon),
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Text(title, style: Theme.of(context).textTheme.headline6),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
+          child: child,
+        )
+      ]),
+    );
+  }
+}
+
+class TimelineCard extends StatelessWidget {
+  final int year;
+  final String description;
+  final double width;
+  const TimelineCard(this.year, this.description,
+      {Key? key, required this.width})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return HoverCard(
+      width: width,
+      child: Wrap(
+          alignment: WrapAlignment.spaceAround,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            Section(
+              margin: EdgeInsets.zero,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: width / 35,
+                      width: width / 35,
+                      decoration: const BoxDecoration(
+                          color: Colors.orange, shape: BoxShape.circle),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        year.toString(),
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Text(description, style: Theme.of(context).textTheme.headline5)
+          ]),
     );
   }
 }

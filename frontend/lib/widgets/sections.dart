@@ -7,16 +7,20 @@ import 'package:url_launcher/url_launcher.dart';
 class Section extends StatelessWidget {
   final Widget child;
   final BoxDecoration decoration;
+  final EdgeInsets? margin;
   const Section(
-      {Key? key, required this.child, this.decoration = const BoxDecoration()})
+      {Key? key,
+      required this.child,
+      this.margin,
+      this.decoration = const BoxDecoration()})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double paddingSize = MediaQuery.of(context).size.width / 50;
+    double marginSize = MediaQuery.of(context).size.width / 50;
     return Container(
-        margin: EdgeInsets.only(
-            top: paddingSize, left: paddingSize, right: paddingSize),
+        margin: margin ?? EdgeInsets.only(
+            top: marginSize, left: marginSize, right: marginSize),
         decoration: decoration.copyWith(
             color: decoration.color ?? Theme.of(context).colorScheme.background,
             borderRadius: decoration.borderRadius ?? BorderRadius.circular(20)),
@@ -25,7 +29,7 @@ class Section extends StatelessWidget {
 }
 
 class AboutMeSection extends StatelessWidget {
-  const AboutMeSection({Key? key}) : super(key: key);
+  const AboutMeSection({required Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,7 @@ class AboutMeSection extends StatelessWidget {
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
+            padding: const EdgeInsets.only(bottom: 8),
             child: Column(children: [
               Text('Hey there!',
                   style: Theme.of(context)
@@ -84,7 +88,7 @@ class AboutMeSection extends StatelessWidget {
 class TechnologiesSecion extends StatelessWidget {
   final double cardWidth;
   final scrollController = ScrollController();
-  TechnologiesSecion({Key? key, required this.cardWidth})
+  TechnologiesSecion({required Key key, required this.cardWidth})
       : super(key: key);
 
   @override
@@ -139,7 +143,7 @@ class Footer extends StatelessWidget {
       child: DefaultTextStyle(
         style: footerTextStyle,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8),
           child: Wrap(
             alignment: WrapAlignment.spaceAround,
             crossAxisAlignment: WrapCrossAlignment.start,
@@ -250,6 +254,7 @@ class FooterLinkWithIcon extends StatelessWidget {
         }
       },
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [child, icon],
       ),
     );

@@ -3,7 +3,7 @@ export './projects_list.dart';
 export './sections.dart';
 export './sidebar.dart';
 export './cards.dart';
-export './roadmap.dart';
+export 'timeline.dart';
 
 
 // Thanks to The Flutter Way
