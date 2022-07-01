@@ -10,14 +10,17 @@ class HoverCard extends StatefulWidget {
   final double width;
   final Widget child;
   const HoverCard(
-      {Key? key, required this.width, this.height, required this.child})
+      {Key? key,
+      required this.width,
+      this.height,
+      required this.child})
       : super(key: key);
 
   @override
   State<HoverCard> createState() => _HoverCardState();
 }
 
-class _HoverCardState extends State<HoverCard> {
+class _HoverCardState extends State<HoverCard> with TickerProviderStateMixin {
   bool isHovering = false;
 
   setHoveringStatus(bool status) {
@@ -49,9 +52,11 @@ class _HoverCardState extends State<HoverCard> {
                   width: isHovering ? widget.width + 20 : widget.width,
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.fastOutSlowIn,
-                  transform: isHovering ? hoverTransform : Matrix4.identity(),
+                  transform:
+                      isHovering ? hoverTransform : Matrix4.identity(),
                   child: Card(
-                      elevation: isHovering ? 30 : 0, child: widget.child)))),
+                      elevation: isHovering ? 30 : 0,
+                      child: widget.child)))),
     );
   }
 }
@@ -79,8 +84,7 @@ class ProjectCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline4),
               )),
           Padding(
-            padding:
-                const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
+            padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
             child: Text(projectData['description'] ?? ''),
           ),
           Row(
@@ -120,9 +124,8 @@ class TechnologyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return HoverCard(
       width: width,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Padding(padding: const EdgeInsets.all(8), child: icon),
         Padding(
           padding: const EdgeInsets.all(8),
@@ -149,39 +152,36 @@ class TimelineCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return HoverCard(
       width: width,
-      child: Wrap(
-          alignment: WrapAlignment.spaceAround,
+      child: Padding(
+        padding: const EdgeInsets.all(50),
+        child: Wrap(
+          alignment: WrapAlignment.spaceEvenly,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            Section(
-              margin: EdgeInsets.zero,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: width / 35,
-                      width: width / 35,
-                      decoration: const BoxDecoration(
-                          color: Colors.orange, shape: BoxShape.circle),
+            Container(
+                width: width / 5,
+                decoration: BoxDecoration(
+                    border: Border(
+                        right:
+                            BorderSide(color: Theme.of(context).dividerColor))),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Container(
+                          height: width / 50,
+                          width: width / 50,
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.orange)),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        year.toString(),
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Text(description, style: Theme.of(context).textTheme.headline5)
-          ]),
+                    Text(year.toString(),
+                        style: Theme.of(context).textTheme.headline5),
+                  ],
+                )),
+            SizedBox(width: width / 2.5, child: Text(description)),
+          ],
+        ),
+      ),
     );
   }
 }

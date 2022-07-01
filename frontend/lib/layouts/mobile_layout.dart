@@ -54,7 +54,7 @@ class MobileLayout extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: TimeLine(key: timelineKey, width: 500),
+            child: TimeLine(key: timelineKey, width: 450),
           ),
           const Padding(
             padding: EdgeInsets.only(top: 8),

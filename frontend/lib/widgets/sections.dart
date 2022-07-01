@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:frontend/utils/utils.dart';
-import 'package:frontend/widgets/widgets.dart';
+import 'package:frontend/widgets/cards.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Section extends StatelessWidget {
@@ -19,8 +19,9 @@ class Section extends StatelessWidget {
   Widget build(BuildContext context) {
     double marginSize = MediaQuery.of(context).size.width / 50;
     return Container(
-        margin: margin ?? EdgeInsets.only(
-            top: marginSize, left: marginSize, right: marginSize),
+        margin: margin ??
+            EdgeInsets.only(
+                top: marginSize, left: marginSize, right: marginSize),
         decoration: decoration.copyWith(
             color: decoration.color ?? Theme.of(context).colorScheme.background,
             borderRadius: decoration.borderRadius ?? BorderRadius.circular(20)),
@@ -29,7 +30,7 @@ class Section extends StatelessWidget {
 }
 
 class AboutMeSection extends StatelessWidget {
-  const AboutMeSection({required Key key}) : super(key: key);
+  const AboutMeSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +88,7 @@ class AboutMeSection extends StatelessWidget {
 
 class TechnologiesSecion extends StatelessWidget {
   final double cardWidth;
-  final scrollController = ScrollController();
-  TechnologiesSecion({required Key key, required this.cardWidth})
+  const TechnologiesSecion({required Key key, required this.cardWidth})
       : super(key: key);
 
   @override
@@ -99,22 +99,18 @@ class TechnologiesSecion extends StatelessWidget {
               .textTheme
               .headline4
               ?.copyWith(fontWeight: FontWeight.w500)),
-      Scrollbar(
-        controller: scrollController,
-        child: SingleChildScrollView(
-          controller: scrollController,
-          scrollDirection: Axis.horizontal,
-          child: IntrinsicHeight(
-            child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: technologiesData
-                    .map((e) => TechnologyCard(
-                        width: cardWidth,
-                        icon: e['icon'],
-                        title: e['name'],
-                        child: Text(e['description'])))
-                    .toList()),
-          ),
+      SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: IntrinsicHeight(
+          child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: technologiesData
+                  .map((e) => TechnologyCard(
+                      width: cardWidth,
+                      icon: e['icon'],
+                      title: e['name'],
+                      child: Text(e['description'])))
+                  .toList()),
         ),
       )
     ]);

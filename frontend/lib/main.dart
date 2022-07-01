@@ -32,7 +32,8 @@ class MyApp extends ConsumerWidget {
         themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
         home: Responsive(
           mobile: MobileLayout(),
-          tablet: TabletLayout(),
+          // The desktop layout works for tablets too!
+          tablet: DesktopLayout(),
           desktop: DesktopLayout(),
         ));
   }
