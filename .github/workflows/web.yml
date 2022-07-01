@@ -15,4 +15,6 @@ jobs:
       - uses: subosito/flutter-action@v1
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
+          workingDir: ./frontend/
+        with:
           baseHref: /Portfolio/
