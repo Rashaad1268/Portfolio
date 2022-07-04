@@ -22,9 +22,8 @@ const projectsData = [
     'name': 'StonkFish',
     'github_url': 'https://github.com/Rashaad1268/StonkFish',
     'description':
-        ('A chess engine written using dart. The aim is to get an elo above 2000. '
-            'I was originally planning to use C/C++ but then I realized that my proficiency '
-            'in C/C++ is not enough for this project'),
+        ('A chess engine written using python. The aim is to get an elo above 2000. '
+            "I'll write another version of it in C when I get good at the C programming language"),
   },
   {
     'name': 'YouTube Clone',
