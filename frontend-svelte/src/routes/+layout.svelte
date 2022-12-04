@@ -1,11 +1,12 @@
-<script context="module">
-</script>
-
 <script>
     import "../app.css";
 	import NavBar from "./navBar.svelte";
 	import Footer from "./footer.svelte";
 </script>
+
+<svelte:head>
+    <title>Rashaad Akbar</title>
+</svelte:head>
 
 <NavBar />
 
