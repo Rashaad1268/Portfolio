@@ -1,24 +1,16 @@
 <script lang="ts">
     import { onMount } from "svelte";
-
-
     let ball: SVGSVGElement | undefined;
     let ballOffset = 0;
-
     onMount(async () => {
         ballOffset = !!ball ? (window.scrollY - ball.getBoundingClientRect().top) : 0; // Set the offset on mount
-
         function handleScroll () {
             if (!ball) return; // ball can be null on re-renders
-
             ballOffset = (window.scrollY - ball.getBoundingClientRect().top);
         };
-
         window.addEventListener('scroll', handleScroll)
-
         return () => window.removeEventListener('scroll', handleScroll); // Cleanup
     });
-
 </script>
 
 
@@ -34,7 +26,6 @@
     #person {
         @apply -translate-x-20;
     }
-
     #football {
         @apply absolute fill-white h-[60px] z-50;
     }

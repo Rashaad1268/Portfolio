@@ -1,0 +1,54 @@
+<script lang="ts">
+    import { technologiesData } from "$lib/data";
+
+    const technologyCardOffset = -40;
+</script>
+
+<div class="technology-grid">
+    {#each technologiesData as technology, index}
+        <div class="technology-card" style="--card-index: {index}; --translate-x-value: {index*technologyCardOffset}px">
+            {@html technology.icon}
+            <p class="text-2xl font-mono py-2 text-center">{technology.name}</p>
+            <p class="tracking-tight text-center">{technology.description}</p>
+        </div>
+    {/each}
+</div>
+
+<style lang="postcss">
+    .technology-card {
+        @apply flex flex-col justify-start items-center min-w-[240px] bg-zinc-800 border
+              border-neutral-900 p-4 mb-[5px] z-[var(--card-index)]
+              transition-all delay-[10ms]
+              translate-x-[var(--translate-x-value)];
+        box-shadow: -3rem 0 5rem -3rem #000;
+
+    }
+
+    .technology-card:nth-child(even) {
+        @apply bg-neutral-800;
+    }
+
+    .technology-card:hover {
+        @apply scale-105 -translate-y-1 z-50;
+        box-shadow: -2rem 0 5rem -3rem #000;
+    }
+
+    :global(.technology-card > svg) {
+        @apply h-[100px] w-[100px] fill-neutral-800 dark:fill-white;
+        filter: grayscale(1);
+    }
+
+    .technology-grid {
+        @apply flex overflow-x-scroll w-[90vw] p-4 ;
+    }
+
+    .technology-grid::-webkit-scrollbar {
+        /* Don't this or the other styles won't work for some reason ¯\_(ツ)_/¯ */
+        @apply h-2;
+    }
+
+    .technology-grid::-webkit-scrollbar-thumb {
+        @apply bg-zinc-700 rounded-md;
+    }
+
+</style>

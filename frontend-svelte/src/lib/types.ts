@@ -6,3 +6,9 @@ export interface ProjectInterface {
     githubUrl: string;
     websiteUrl?: string;
 }
+
+export interface TechnologyInterface {
+    name: string;
+    description: string;
+    icon: string;
+}

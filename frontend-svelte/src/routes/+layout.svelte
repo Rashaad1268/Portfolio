@@ -5,13 +5,13 @@
 </script>
 
 <svelte:head>
-    <title>Rashaad Akbar</title>
+    <title>Rashaad • Portfolio</title>
 </svelte:head>
 
 <NavBar />
 
 <!-- Subtract the navbar height (96x) from 100vh -->
-<main class="min-h-[calc(100vh-96px)]">
+<main class="min-h-[calc(100vh-var(--navbar-height))]">
     <slot />
 </main>
 

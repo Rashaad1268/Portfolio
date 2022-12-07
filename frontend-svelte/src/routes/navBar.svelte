@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from "$app/stores";
   import {
   	Disclosure,
   	DisclosureButton,
@@ -7,10 +8,10 @@
   import { slide } from "svelte/transition";
 
   const navigation = [
-  { name: 'Introduction', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Skills', href: '#', current: false },
-  { name: 'Sports', href: '#', current: false },
+  { name: 'Introduction', href: '#intro'},
+  { name: 'Projects', href: '#projects'},
+  { name: 'Technologies', href: '#technologies'},
+  { name: 'Sports', href: '#sports'},
 ]
 
 function classNames(...classes: string[]) {
@@ -18,7 +19,7 @@ function classNames(...classes: string[]) {
 }
 </script>
 
-      <Disclosure as="nav" class="bg-neutral-800 mb-8 sticky top-0 z-[9999]" let:open>
+      <Disclosure as="nav" class="bg-neutral-800 sticky top-0 right-0 left-0 z-[9999] h-[var(--navbar-height)]" let:open>
             <div class="max-w-7xl px-2 sm:px-6 lg:px-8">
               <div class="relative flex h-16 items-center justify-between">
                 <div class="absolute inset-y-0 r-0 flex items-center sm:hidden">
@@ -44,10 +45,10 @@ function classNames(...classes: string[]) {
                         <a
                           href={item.href}
                           class={classNames(
-                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                            item.href === $page.url.hash ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                             'px-3 py-2 rounded-md text-sm font-medium'
                           )}
-                          aria-current={item.current ? 'page' : undefined}
+                          aria-current={item.href === $page.url.hash ? 'page' : undefined}
                         >
                           {item.name}
                         </a>
@@ -67,10 +68,10 @@ function classNames(...classes: string[]) {
                     as="a"
                     href={item.href}
                     class={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      item.href === $page.url.hash ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'block px-3 py-2 rounded-md text-base font-medium'
                     )}
-                    aria-current={item.current ? 'page' : undefined}
+                    aria-current={item.href === $page.url.hash ? 'page' : undefined}
                   >
                     {item.name}
                   </DisclosureButton>

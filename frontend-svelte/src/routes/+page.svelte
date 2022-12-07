@@ -1,28 +1,36 @@
 <script lang="ts">
     import ProjectsGrid from "./projectsGrid.svelte";
+    import TechnologiesGrid from "./technologiesGrid.svelte";
     import SportsSection from "./sportsSection.svelte";
 </script>
 
-<div class="section">
+
+<div class="section" id="intro">
     <div class="img-section">
         <div>
             <span class="text-6xl hover-underline break-elements-onwrap">
                 <span class="font-semibold name-gradient">Rashaad Akbar</span>
                 is the name
             </span>
-            <p class="text-3xl my-2">I'm running the <span class="font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">game</span></p>
+            <p class="text-3xl my-2">I'm ahead of my <span class="font-bold bg-gradient-to-r from-cyan-500 to-sky-500 bg-clip-text text-transparent">game</span></p>
         </div>
 
         <img src="/my_photo.jpeg" alt="A pic of me" class="w-64 rounded-md object-contain md:ml-auto">
     </div>
 </div>
 
-<div class="section">
-    <h1 class="title-text">Projects</h1>
+<div class="section" id="projects">
+    <h1 class="title-text" id="projects">Projects</h1>
     <ProjectsGrid />
 </div>
 
-<div class="section">
+<div class="section" id="technologies">
+    <h1 class="title-text">Technologies I know</h1>
+
+    <TechnologiesGrid />
+</div>
+
+<div class="section" id="sports">
     <h1 class="title-text">Sports</h1>
     <div class="flex flex-row justify-evenly">
         <SportsSection />

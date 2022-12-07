@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply bg-neutral-900 text-neutral-100
+
+@layer utilities {
+    :root {
+        --navbar-height: 64px;
+    }
+
+    body {
+        @apply bg-neutral-900 text-stone-200;
+    }
+
 }
