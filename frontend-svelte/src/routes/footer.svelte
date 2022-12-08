@@ -46,7 +46,7 @@
 
 <style lang="postcss">
     footer {
-        @apply flex flex-row justify-around flex-wrap bg-stone-900 py-10;
+        @apply flex flex-row justify-around flex-wrap bg-zinc-900 py-10;
         grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     }
 
