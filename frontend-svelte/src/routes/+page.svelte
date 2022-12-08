@@ -5,7 +5,7 @@
 </script>
 
 
-<div class="section" id="intro">
+<div class="section mt-5" id="intro">
     <div class="img-section">
         <div>
             <span class="text-6xl hover-underline break-elements-onwrap">
@@ -44,7 +44,7 @@
 
 <style lang="postcss">
     .section {
-        @apply flex flex-col items-start rounded-lg min-h-[80vh] mx-10 lg:mx-20;
+        @apply flex flex-col items-start rounded-lg min-h-[80vh] mx-5 sm:mx-10 lg:mx-20;
     }
 
     .img-section {
@@ -56,7 +56,7 @@
     }
 
     .title-text {
-        @apply hover-underline text-6xl font-semibold mb-10;
+        @apply hover-underline text-6xl font-semibold my-10;
     }
 
     .name-gradient {

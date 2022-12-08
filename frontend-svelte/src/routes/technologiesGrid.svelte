@@ -8,8 +8,8 @@
     {#each technologiesData as technology, index}
         <div class="technology-card" style="--card-index: {index}; --translate-x-value: {index*technologyCardOffset}px">
             {@html technology.icon}
-            <p class="text-2xl font-mono py-2 text-center">{technology.name}</p>
-            <p class="tracking-tight text-center">{technology.description}</p>
+            <p class="text-2xl font-[jetbrains-mono] py-2 text-center">{technology.name}</p>
+            <p class="tracking-tight font-[jetbrains-mono] leading-5 text-center">{technology.description}</p>
         </div>
     {/each}
 </div>

@@ -11,9 +11,9 @@
     <div class="projects-grid">
         {#each projects as project (project.name)}
         <div class="project-card" in:fly out:slide>
-            <div>
+            <div class="pb-2">
                 <p class="font-bold text-2xl mb-2">{project.name}</p>
-                <p class="text-gray-300 text-base">{project.description}</p>
+                <p class="text-gray-300 leading-5">{project.description}</p>
             </div>
 
             <div class="pb-2">
@@ -69,7 +69,7 @@
 
     .tag-chip {
         @apply inline-block bg-zinc-600 rounded-xl px-2 py-1 text-xs font-semibold
-             text-gray-200 mr-1 mb-2;
+             text-gray-200 mr-1 mb-[0.1rem];
     }
 
     .collapse-button {

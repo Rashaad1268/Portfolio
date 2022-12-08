@@ -46,7 +46,7 @@
 
 <style lang="postcss">
     footer {
-        @apply flex flex-row justify-around flex-wrap bg-zinc-900 py-10;
+        @apply flex flex-row justify-around flex-wrap bg-zinc-900 font-[jetbrains-mono] py-10 px-4;
         grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     }
 
@@ -60,8 +60,9 @@
 
     .icon-link {
         @apply flex justify-center items-center gap-1 text-sm mb-1
-                bg-gradient-to-r from-gray-100 to-gray-400            
-                hover:bg-[length:100%_1.5px];
+             text-stone-300	hover:text-stone-100
+               bg-gradient-to-r from-gray-100 to-gray-400            
+               hover:bg-[length:100%_1.5px];
 
         background-size: 0% 1.5px;
         background-repeat: no-repeat;
