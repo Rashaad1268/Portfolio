@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import vercel from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -8,7 +8,18 @@ const config = {
 	preprocess: preprocess({postcss: true, scss: true,}),
 
 	kit: {
-		adapter: adapter()
+		adapter: vercel({
+			edge: false, // Vercel edge functions
+
+			// an array of dependencies that esbuild should treat
+	    	// as external when bundling functions
+			external: [],
+
+			// if true, will split your app into multiple functions
+    		// instead of creating a single one for the entire app
+			split: false
+	  
+		})
 	}
 };
 

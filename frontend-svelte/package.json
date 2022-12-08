@@ -37,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "1.0.0-next.84",
 		"sass": "^1.56.1"
 	}
 }
