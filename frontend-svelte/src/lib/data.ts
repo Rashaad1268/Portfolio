@@ -131,3 +131,4 @@ export const youtubeUrl = 'https://www.youtube.com/@rashaadakbar';
 export const discordServerUrl = 'https://discord.gg/EEK6wBRpQb';
 
 export const sourceCodeUrl = 'https://github.com/Rashaad1268/Portfolio';
+export const flutterPortfolioUrl = 'https://rashaad1268.github.io/Portfolio/#/';

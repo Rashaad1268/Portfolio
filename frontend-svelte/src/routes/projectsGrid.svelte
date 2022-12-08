@@ -68,7 +68,8 @@
     }
 
     .tag-chip {
-        @apply inline-block bg-zinc-600 rounded-xl px-2 py-1 text-xs font-semibold text-gray-200 mr-1 mb-2;
+        @apply inline-block bg-zinc-600 rounded-xl px-2 py-1 text-xs font-semibold
+             text-gray-200 mr-1 mb-2;
     }
 
     .collapse-button {

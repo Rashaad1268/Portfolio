@@ -17,20 +17,15 @@
 <style lang="postcss">
     .technology-card {
         @apply flex flex-col justify-start items-center min-w-[240px] bg-zinc-800 border
-              border-neutral-900 p-4 mb-[5px] z-[var(--card-index)]
-              transition-all delay-[10ms]
-              translate-x-[var(--translate-x-value)];
-        box-shadow: -3rem 0 5rem -3rem #000;
+              border-neutral-900 shadow-[-3rem_0_5rem_-3rem_#000] p-4 mb-[5px] z-[var(--card-index)]
+              transition-all delay-[10ms] translate-x-[var(--translate-x-value)]
+
+              hover:scale-105 hover:-translate-y-1 hover:z-50 hover:shadow-[-2rem_0_5rem_-3rem_#000];
 
     }
 
     .technology-card:nth-child(even) {
         @apply bg-neutral-800;
-    }
-
-    .technology-card:hover {
-        @apply scale-105 -translate-y-1 z-50;
-        box-shadow: -2rem 0 5rem -3rem #000;
     }
 
     :global(.technology-card > svg) {
