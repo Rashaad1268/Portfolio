@@ -51,7 +51,7 @@
     }
 
     footer > div {
-        @apply flex flex-col justify-start items-start;
+        @apply flex flex-col justify-start items-start my-6 sm:my-0;
     }
 
     .footer-title {
