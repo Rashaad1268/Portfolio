@@ -29,7 +29,7 @@
     }
 
     :global(.technology-card > svg) {
-        @apply h-[100px] w-[100px] fill-neutral-800 dark:fill-white;
+        @apply h-[100px] w-[100px] fill-white;
         filter: grayscale(1);
     }
 
