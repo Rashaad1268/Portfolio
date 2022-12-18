@@ -29,8 +29,11 @@
     }
 
     :global(.technology-card > svg) {
-        @apply h-[100px] w-[100px] fill-white;
-        filter: grayscale(1);
+        @apply h-[100px] w-[100px] fill-white grayscale;
+    }
+
+    :global(.technology-card:hover > svg) {
+        @apply grayscale-0
     }
 
     .technology-grid {
