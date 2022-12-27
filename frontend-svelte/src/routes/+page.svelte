@@ -8,7 +8,7 @@
 	<div class="img-section">
 		<div>
 			<span class="hover-underline break-elements-onwrap text-6xl">
-				<span class="name-gradient font-semibold">Rashaad Akbar</span>
+				<span class="name-gradient font-semibold">Rashaad</span>
 				is the name
 			</span>
 			<p class="my-2 text-3xl">
