@@ -1,52 +1,55 @@
 <script lang="ts">
-    import { technologiesData } from "$lib/data";
+	import { technologiesData } from '$lib/data';
 
-    const technologyCardOffset = -40;
+	const technologyCardOffset = -40;
 </script>
 
 <div class="technology-grid">
-    {#each technologiesData as technology, index}
-        <div class="technology-card" style="--card-index: {index}; --translate-x-value: {index*technologyCardOffset}px">
-            {@html technology.icon}
-            <p class="text-2xl font-[jetbrains-mono] py-2 text-center">{technology.name}</p>
-            <p class="tracking-tight font-[jetbrains-mono] leading-5 text-center">{technology.description}</p>
-        </div>
-    {/each}
+	{#each technologiesData as technology, index}
+		<div
+			class="technology-card"
+			style="--card-index: {index}; --translate-x-value: {index * technologyCardOffset}px"
+		>
+			{@html technology.icon}
+			<p class="py-2 text-center font-[jetbrains-mono] text-2xl">{technology.name}</p>
+			<p class="text-center font-[jetbrains-mono] leading-5 tracking-tight">
+				{technology.description}
+			</p>
+		</div>
+	{/each}
 </div>
 
 <style lang="postcss">
-    .technology-card {
-        @apply flex flex-col justify-start items-center min-w-[240px] bg-zinc-800 border
-              border-neutral-900 shadow-[-3rem_0_5rem_-3rem_#000] p-4 mb-[5px] z-[var(--card-index)]
-              transition-all delay-[10ms] translate-x-[var(--translate-x-value)]
+	.technology-card {
+		@apply z-[var(--card-index)] mb-[5px] flex min-w-[240px] translate-x-[var(--translate-x-value)] flex-col items-center
+              justify-start border border-neutral-900 bg-zinc-800 p-4
+              shadow-[-3rem_0_5rem_-3rem_#000] transition-all delay-[10ms]
 
-              hover:scale-105 hover:-translate-y-1 hover:z-50 hover:shadow-[-2rem_0_5rem_-3rem_#000];
+              hover:z-50 hover:-translate-y-1 hover:scale-105 hover:shadow-[-2rem_0_5rem_-3rem_#000];
+	}
 
-    }
+	.technology-card:nth-child(even) {
+		@apply bg-neutral-800;
+	}
 
-    .technology-card:nth-child(even) {
-        @apply bg-neutral-800;
-    }
+	:global(.technology-card > svg) {
+		@apply h-[100px] w-[100px] fill-white grayscale;
+	}
 
-    :global(.technology-card > svg) {
-        @apply h-[100px] w-[100px] fill-white grayscale;
-    }
+	:global(.technology-card:hover > svg) {
+		@apply grayscale-0;
+	}
 
-    :global(.technology-card:hover > svg) {
-        @apply grayscale-0
-    }
+	.technology-grid {
+		@apply flex w-[90vw] overflow-x-scroll p-4;
+	}
 
-    .technology-grid {
-        @apply flex overflow-x-scroll w-[90vw] p-4 ;
-    }
+	.technology-grid::-webkit-scrollbar {
+		/* Don't this or the other styles won't work for some reason ¯\_(ツ)_/¯ */
+		@apply h-2;
+	}
 
-    .technology-grid::-webkit-scrollbar {
-        /* Don't this or the other styles won't work for some reason ¯\_(ツ)_/¯ */
-        @apply h-2;
-    }
-
-    .technology-grid::-webkit-scrollbar-thumb {
-        @apply bg-zinc-700 rounded-md;
-    }
-
+	.technology-grid::-webkit-scrollbar-thumb {
+		@apply rounded-md bg-zinc-700;
+	}
 </style>

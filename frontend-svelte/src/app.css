@@ -2,18 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
-    :root {
-        --navbar-height: 64px;
-    }
+	:root {
+		--navbar-height: 64px;
+	}
 
-    body {
-        @apply bg-neutral-900 text-stone-200;
-    }
+	body {
+		@apply bg-neutral-900 text-stone-200;
+	}
 
-    @font-face {
-        font-family: jetbrains-mono;
-        src: url('/fonts/JetBrainsMono-Regular.ttf');
-    }
+	@font-face {
+		font-family: jetbrains-mono;
+		src: url('/fonts/JetBrainsMono-Regular.ttf');
+	}
 }
