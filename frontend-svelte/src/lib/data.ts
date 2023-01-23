@@ -128,7 +128,7 @@ export const technologiesData: TechnologyInterface[] = [
 export const twitterUrl = 'https://twitter.com/RashaadAkbar';
 export const githubUrl = 'https://github.com/Rashaad1268';
 export const youtubeUrl = 'https://www.youtube.com/@rashaadakbar';
-export const discordServerUrl = 'https://discord.gg/EEK6wBRpQb';
+export const discordServerUrl = 'https://discord.gg/bwJA4r23gV';
 
 export const sourceCodeUrl = 'https://github.com/Rashaad1268/Portfolio';
 export const flutterPortfolioUrl = 'https://rashaad1268.github.io/Portfolio/#/';
