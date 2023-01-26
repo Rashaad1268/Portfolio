@@ -25,11 +25,13 @@ specifiers:
   tslib: ^2.3.1
   typescript: ^4.7.4
   vite: 4.0.1
+  web-vitals: ^3.1.1
 
 dependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.84
   '@vercel/analytics': 0.1.8
   sass: 1.56.2
+  web-vitals: 3.1.1
 
 devDependencies:
   '@playwright/test': 1.25.0
@@ -2553,6 +2555,10 @@ packages:
     dependencies:
       vite: 4.0.1_sass@1.56.2
     dev: true
+
+  /web-vitals/3.1.1:
+    resolution: {integrity: sha512-qvllU+ZeQChqzBhZ1oyXmWsjJ8a2jHYpH8AMaVuf29yscOPZfTQTjQFRX6+eADTdsDE8IanOZ0cetweHMs8/2A==}
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
