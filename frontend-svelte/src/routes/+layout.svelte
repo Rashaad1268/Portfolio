@@ -10,9 +10,7 @@
 	import NavBar from "./navBar.svelte";
 
 
-
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
-	$: console.log("analyticsId", analyticsId)
 
 	$: if (browser && analyticsId) {
 	    webVitals({
