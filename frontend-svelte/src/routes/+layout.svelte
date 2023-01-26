@@ -1,7 +1,15 @@
 <script>
+	import {onMount} from "svelte";
 	import '../app.css';
 	import NavBar from './navBar.svelte';
 	import Footer from './footer.svelte';
+
+	import { inject } from '@vercel/analytics';
+
+
+	onMount(() => {
+		inject();
+	});
 </script>
 
 <svelte:head>
