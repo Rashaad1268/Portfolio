@@ -15,4 +15,8 @@
 		font-family: jetbrains-mono;
 		src: url('/fonts/JetBrainsMono-Regular.ttf');
 	}
+
+	html {
+		scroll-behavior: smooth;
+	}
 }

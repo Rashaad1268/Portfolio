@@ -5,7 +5,7 @@
 	import { inject } from "@vercel/analytics";
 	import { onMount } from "svelte";
 
-	import "../app.css";
+	import "../app.scss";
 	import Footer from "./footer.svelte";
 	import NavBar from "./navBar.svelte";
 
@@ -20,9 +20,10 @@
     	})
 	}
 
-
 	onMount(() => {
-		inject();
+		if (analyticsId) {
+			inject();
+		}
 	});
 </script>
 
