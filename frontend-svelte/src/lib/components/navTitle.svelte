@@ -12,8 +12,7 @@
 	}
 </script>
 
-<a
-	href="/"
+<div
 	draggable="false"
 	class="flex flex-shrink-0 select-none items-center gap-2"
 	on:click={increaseIndex}
@@ -69,7 +68,7 @@
 	{/if}
 
 	<h1 class="font-[jetbrains-mono] text-2xl font-semibold">Rashaad</h1>
-</a>
+</div>
 
 <style>
 	svg {
