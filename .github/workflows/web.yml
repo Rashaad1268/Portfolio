@@ -4,18 +4,18 @@ on:
   push:
     branches: [main]
     paths:
-      - frontend/**
+      - frontend-flutter/**
 
 jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./frontend/
+        working-directory: ./frontend-flutter/
     steps:
       - uses: actions/checkout@v2 # Only works with v2
       - uses: subosito/flutter-action@v1
       - uses: bluefireteam/flutter-gh-pages@v7
         with:
-          workingDir: ./frontend/
+          workingDir: ./frontend-flutter/
           baseHref: /Portfolio/
