@@ -3,7 +3,7 @@
 
 	let ball: SVGSVGElement | undefined;
 	let ballOffset = 0;
-	const offset = -30; // A random value
+	const offset = -800; // A random value
 
 	function getBallOffset() {
 		if (!ball) return 0;
