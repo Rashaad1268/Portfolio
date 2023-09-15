@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ProjectsGrid from './projectsGrid.svelte';
-	import SportsSection from './sportsSection.svelte';
-	import TechnologiesGrid from './technologiesGrid.svelte';
+	import ProjectsGrid from '../lib/components/projectsGrid.svelte';
+	import SportsSection from '../lib/components/sportsSection.svelte';
+	import TechnologiesGrid from '../lib/components/technologiesGrid.svelte';
 </script>
 
 <div class="section mt-5" id="intro">

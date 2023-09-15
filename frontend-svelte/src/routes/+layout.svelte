@@ -1,23 +1,23 @@
 <script>
-	import { browser } from "$app/environment";
-	import { page } from "$app/stores";
-	import { webVitals } from "$lib/vitals";
-	import { inject } from "@vercel/analytics";
-	import { onMount } from "svelte";
+	import { browser } from '$app/environment';
+	import { page } from '$app/stores';
+	import { webVitals } from '$lib/vitals.cjs';
+	import { inject } from '@vercel/analytics';
+	import { onMount } from 'svelte';
 
-	import "../app.scss";
-	import Footer from "./footer.svelte";
-	import NavBar from "./navBar.svelte";
-
+	import '../app.scss';
+	import Footer from '../lib/components/footer.svelte';
+	import NavBar from '../lib/components/navBar.svelte';
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
-	$: if (browser && analyticsId) {
-	    webVitals({
-    		path: $page.url.pathname,
-     	 	params: $page.params,
-      		analyticsId
-    	})
+// @ts-ignore
+		$: if (browser && analyticsId) {
+		webVitals({
+			path: $page.url.pathname,
+			params: $page.params,
+			analyticsId
+		});
 	}
 
 	onMount(() => {

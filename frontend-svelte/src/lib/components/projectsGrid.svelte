@@ -95,7 +95,7 @@
 	}
 
 	.project-card {
-		@apply flex flex-col rounded bg-zinc-800 py-4 px-6 shadow-2xl transition-transform;
+		@apply flex flex-col rounded bg-zinc-800 px-6 py-4 shadow-2xl transition-transform;
 	}
 
 	.project-card:hover {
@@ -111,7 +111,7 @@
 	}
 
 	.tag-chip {
-		@apply mr-1 mb-[0.1rem] inline-block rounded-xl bg-zinc-600 px-2 py-1
+		@apply mb-[0.1rem] mr-1 inline-block rounded-xl bg-zinc-600 px-2 py-1
              text-xs font-semibold text-gray-200;
 	}
 

@@ -18,7 +18,7 @@
 
 <Disclosure
 	as="nav"
-	class="sticky top-0 right-0 left-0 z-[9999] h-[var(--navbar-height)] bg-neutral-800"
+	class="sticky left-0 right-0 top-0 z-[9999] h-[var(--navbar-height)] bg-neutral-800"
 	let:open
 >
 	<div class="max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@
 	{#if open}
 		<div in:slide out:slide>
 			<DisclosurePanel class="sm:hidden" static>
-				<div class="space-y-1 px-2 pt-2 pb-3">
+				<div class="space-y-1 px-2 pb-3 pt-2">
 					{#each navigation as item (item.name)}
 						<DisclosureButton
 							as="a"

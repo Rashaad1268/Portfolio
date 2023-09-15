@@ -19,7 +19,7 @@
 	{/each}
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.technology-card {
 		@apply z-[var(--card-index)] mb-[5px] flex min-w-[240px] translate-x-[var(--translate-x-value)] flex-col items-center
               justify-start border border-neutral-900 bg-zinc-800 p-4
