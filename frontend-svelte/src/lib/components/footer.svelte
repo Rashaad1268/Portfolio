@@ -82,7 +82,7 @@
 
 <style lang="postcss">
 	footer {
-		@apply flex flex-row flex-wrap justify-around bg-zinc-900 px-4 py-10 font-[jetbrains-mono];
+		@apply flex flex-row flex-wrap justify-around bg-zinc-900 px-4 py-10 font-mono;
 		grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
 	}
 

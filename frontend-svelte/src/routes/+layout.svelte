@@ -5,14 +5,13 @@
 	import { inject } from '@vercel/analytics';
 	import { onMount } from 'svelte';
 
-	import '../app.scss';
+	import '../app.css';
 	import Footer from '../lib/components/footer.svelte';
 	import NavBar from '../lib/components/navBar.svelte';
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
-// @ts-ignore
-		$: if (browser && analyticsId) {
+	$: if (browser && analyticsId) {
 		webVitals({
 			path: $page.url.pathname,
 			params: $page.params,

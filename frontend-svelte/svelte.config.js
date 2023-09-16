@@ -11,8 +11,8 @@ const config = {
 	// for more information about preprocessors
 	preprocess: preprocess({
 		postcss: {
-            configFilePath: join(__dirname, 'postcss.config.cjs')
-        },
+			configFilePath: join(__dirname, 'postcss.config.cjs')
+		},
 		scss: true
 	}),
 

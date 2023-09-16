@@ -67,7 +67,7 @@
 		>
 	{/if}
 
-	<h1 class="font-[jetbrains-mono] text-2xl font-semibold">Rashaad</h1>
+	<h1 class="font-mono text-2xl font-medium">Rashaad</h1>
 </button>
 
 <style>

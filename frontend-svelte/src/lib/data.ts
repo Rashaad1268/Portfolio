@@ -5,7 +5,7 @@ export const projectsData: ProjectInterface[] = [
 		name: 'Gamerz.lk',
 		description: 'A website made for local gamers to connect',
 		githubUrl: 'https://github.com/Rashaad1268/Gamerz.lk',
-		tags: ['Gaming', 'SvelteKit', 'Django']
+		tags: ['SvelteKit', 'Django']
 	},
 	{
 		name: 'Flettx Chat',
@@ -14,17 +14,23 @@ export const projectsData: ProjectInterface[] = [
 		tags: ['Rust', 'SvelteKit']
 	},
 	{
+		name: 'StonkFish',
+		description: 'A chess engine',
+		githubUrl: 'https://github.com/Rashaad1268/StonkFish',
+		tags: ['Dart', 'Chess Engine']
+	},
+	{
 		name: 'Yeeter',
 		description: 'A twitter clone',
 		githubUrl: 'https://github.com/Rashaad1268/Yeeter',
-		tags: ['Twitter', 'Flutter', 'Django']
+		tags: ['Flutter', 'Django']
 	},
 	{
 		name: 'Rectilearn',
-		description: 'A website I made with my friends which aims to make studying less ordinary',
+		description: 'A website which aims to make studying less ordinary',
 		githubUrl: 'https://github.com',
 		websiteUrl: 'https://github.com/Sanyok6/rectilearn',
-		tags: ['Education', 'Web Games', 'FastAPI', 'Next.JS']
+		tags: ['Education', 'Kaboom.js', 'FastAPI', 'Next.JS']
 	},
 	{
 		name: 'Chat App',
@@ -37,12 +43,6 @@ export const projectsData: ProjectInterface[] = [
 		description: 'A chess website made for the Python Discord Code Jam 2022',
 		githubUrl: 'https://github.com/Sanyok6/ChessTopia',
 		tags: ['SvelteKit', 'Django', 'Django-Channels']
-	},
-	{
-		name: 'StonkFish',
-		description: 'A chess engine',
-		githubUrl: 'https://github.com/Rashaad1268/StonkFish',
-		tags: ['Python', 'Chess Engine']
 	},
 	{
 		name: 'YouTube Clone',

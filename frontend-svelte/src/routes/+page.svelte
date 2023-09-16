@@ -41,22 +41,12 @@
 
 <div class="section" id="sports">
 	<h1 class="title-text">Sports</h1>
-	<div class="flex flex-row justify-evenly">
-		<SportsSection />
-
-		<div>
-			<h1
-				class="bg-gradient-to-r from-emerald-400 via-green-500 to-teal-500 bg-clip-text text-center text-3xl font-semibold text-transparent"
-			>
-				I like to play Basketball, Football and Chess
-			</h1>
-		</div>
-	</div>
+	<SportsSection />
 </div>
 
 <style lang="postcss">
 	.section {
-		@apply mx-5 flex min-h-[80vh] flex-col items-start rounded-lg sm:mx-10 lg:mx-20;
+		@apply mx-5 flex min-h-[85vh] flex-col items-start rounded-lg sm:mx-10 lg:mx-20;
 	}
 
 	.img-section {

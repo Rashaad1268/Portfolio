@@ -11,8 +11,8 @@
 			style="--card-index: {index}; --translate-x-value: {index * technologyCardOffset}px"
 		>
 			{@html technology.icon}
-			<p class="py-2 text-center font-[jetbrains-mono] text-2xl">{technology.name}</p>
-			<p class="text-center font-[jetbrains-mono] leading-5 tracking-tight">
+			<p class="py-2 text-center font-mono text-2xl">{technology.name}</p>
+			<p class="text-center font-mono leading-5 tracking-tight">
 				{technology.description}
 			</p>
 		</div>
@@ -25,7 +25,7 @@
               justify-start border border-neutral-900 bg-zinc-800 p-4
               shadow-[-3rem_0_5rem_-3rem_#000] transition-all delay-[10ms]
 
-              hover:z-50 hover:-translate-y-1 hover:scale-105 hover:shadow-[-2rem_0_5rem_-3rem_#000];
+              hover:z-50 hover:-translate-y-1 hover:shadow-[-2rem_0_5rem_-3rem_#000];
 	}
 
 	.technology-card:nth-child(even) {
@@ -45,7 +45,6 @@
 	}
 
 	.technology-grid::-webkit-scrollbar {
-		/* Don't this or the other styles won't work for some reason ¯\_(ツ)_/¯ */
 		@apply h-2;
 	}
 
