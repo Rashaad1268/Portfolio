@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-	<title>Rashaad • Portfolio</title>
+	<title>Rashaad • Personal Site</title>
 </svelte:head>
 
 <NavBar />
