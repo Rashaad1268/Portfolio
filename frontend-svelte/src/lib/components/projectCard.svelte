@@ -56,7 +56,7 @@
 	}
 
 	.project-card .links {
-		@apply mt-auto flex gap-5;
+		@apply mt-auto flex gap-5 z-50;
 	}
 
 	.project-card .links svg {
