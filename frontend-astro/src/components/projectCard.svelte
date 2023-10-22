@@ -58,11 +58,11 @@
   }
 
   .project-card .links {
-    @apply mt-auto flex gap-5;
+    @apply mt-auto flex gap-5 z-10;
   }
 
   .project-card .links svg {
-    @apply h-7 fill-black gdark:fill-white;
+    @apply h-7 fill-white;
   }
 
   .tag-chip {

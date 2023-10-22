@@ -91,7 +91,7 @@
 	}
 
 	.footer-title {
-		@apply mb-3 text-2xl font-medium gdark:text-neutral-300;
+		@apply mb-3 text-2xl font-medium text-neutral-300;
 	}
 
 	.icon-link {

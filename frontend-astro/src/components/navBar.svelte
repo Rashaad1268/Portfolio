@@ -1,5 +1,5 @@
 <script lang="ts">
-  	import {onMount} from 'svelte';
+  import { onMount } from "svelte";
   import NavTitle from "./navTitle.svelte";
   import { slide } from "svelte/transition";
 

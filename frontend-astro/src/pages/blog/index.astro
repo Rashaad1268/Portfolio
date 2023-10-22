@@ -1,7 +1,6 @@
 ---
 import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
+import Footer from "../../components/footer.svelte";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import NavBar from "../../components/navBar.svelte";
@@ -88,7 +87,7 @@ const posts = (await getCollection("blog")).sort(
   <body>
     <NavBar client:load />
     <main class="flex justify-center">
-      <section class="max-w-screen-lg">
+      <section class="max-w-screen-lg m-4">
         <ul>
           {
             posts.map((post) => (
@@ -98,7 +97,7 @@ const posts = (await getCollection("blog")).sort(
                     width={720}
                     height={360}
                     src={post.data.heroImage}
-                    alt=""
+                    alt="post hero"
                   />
                   <h4 class="title">{post.data.title}</h4>
                   <p class="date">
