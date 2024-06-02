@@ -24,7 +24,7 @@ import Ping from "../components/ping.astro";
             }
           });
         },
-        { threshold: 0.5 }
+        { threshold: 0.4 }
       );
 
       const targetElements = document.querySelectorAll("[data-enter]");
@@ -68,7 +68,7 @@ import Ping from "../components/ping.astro";
     <Footer />
     <style>
       section {
-        @apply flex flex-col w-full pt-[var(--navbar-height)]
+        @apply flex flex-col w-full pt-8
                px-5 sm:px-10 lg:px-20 min-h-[var(--max-h)];
       }
       .title-text {
