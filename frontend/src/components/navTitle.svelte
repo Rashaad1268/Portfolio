@@ -1,11 +1,15 @@
 <script lang="ts">
   import { navigate } from "astro:transitions/client";
-  
+
   let index = 0;
 
   const maxIndex = 7;
 
   function increaseIndex() {
+    if (document.location.pathname !== "/") {
+      navigate("/");
+    }
+
     if (index >= maxIndex) {
       index = 0;
     } else {

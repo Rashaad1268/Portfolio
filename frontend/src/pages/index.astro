@@ -15,14 +15,14 @@ import Ping from "../components/ping.astro";
   <body class="">
     <NavBar client:load />
 
-    <div class="relative flex flex-col items- h-full">
+    <div class="relative flex flex-col min-h-[var(--max-h)] h-full">
       <BackgroundGrid client:load />
 
-      <section class="absolute items-center justify-center -translate-y-32">
+      <section class="absolute items-center text-center justify-center -translate-y-32">
         <h1 class="font-monocraft text-center title-text name-gradient !my-4">
           Rashaad is the name
         </h1>
-        <h2 class="text-2xl font-monocraft">
+        <h2 class="text-lg sm:text-2xl font-monocraft mx-10 text-balance">
           May or may not be known as <span
             class="font-doodle text-green-500 hover-underline">Slim Shady</span
           >
@@ -44,7 +44,7 @@ import Ping from "../components/ping.astro";
                px-5 sm:px-10 lg:px-20 min-h-[var(--max-h)];
       }
       .title-text {
-        @apply my-10 text-5xl font-semibold;
+        @apply my-10 text-3xl sm:text-4xl font-semibold;
       }
 
       .name-gradient {
