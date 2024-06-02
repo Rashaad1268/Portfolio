@@ -1,9 +1,10 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import NavBar from "../components/navbar.svelte";
-import Footer from "../components/footer.svelte";
+import Footer from "../components/footer.astro";
 import BackgroundGrid from "../components/backgroundGrid.svelte";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Ping from "../components/ping.astro";
 ---
 
 <!doctype html>
@@ -13,53 +14,51 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   </head>
   <body class="">
     <NavBar client:load />
-    <!-- <div class="snap-mandatory snap-y h-screen overflow-y-scroll"> -->
 
-    <div class="relative w-screen max-h-no-nav h-full">
-      <div class="max-h-full overflow-hidden max-w-full absolute">
-        <BackgroundGrid client:load />
-      </div>
+    <div class="relative flex flex-col items- h-full">
+      <BackgroundGrid client:load />
 
-      <!-- <div class="overflow-y-scroll max-h-no-nav h-full"> -->
-        <div class="absolute max-h-no-nav overflow-y-scroll h-screen w-full snap-mandatory snap-y">
-          <!-- <div class=""> -->
-          <div class="section max-h-no-nav"></div>
-          <div class="section max-h-no-nav"></div>
-          <div class="section max-h-no-nav"></div>
-          <!-- </div> -->
-        </div>
-      <!-- </div> -->
+      <section class="absolute items-center justify-center -translate-y-32">
+        <h1 class="font-monocraft text-center title-text name-gradient !my-4">
+          Rashaad is the name
+        </h1>
+        <h2 class="text-2xl font-monocraft">
+          May or may not be known as <span
+            class="font-doodle text-green-500 hover-underline">Slim Shady</span
+          >
+           or <span class="font-doodle hover-underline text-green-500"
+            >Batman</span
+          >
+        </h2>
+      </section>
     </div>
 
-    <Footer client:load />
+    <section>
+      <h1 class="title-text w-min hover-underline">Projects</h1>
+    </section>
 
+    <Footer />
     <style>
-      .section {
-        scroll-snap-align: start;
-
-        @apply px-5 flex h-full pt-[var(--navbar-height)] flex-col items-start sm:px-10 lg:px-20;
+      section {
+        @apply flex flex-col w-full pt-[var(--navbar-height)]
+               px-5 sm:px-10 lg:px-20 min-h-[var(--max-h)];
       }
-
-      .img-section {
-        @apply flex w-full flex-col items-start rounded-lg md:flex-row md:items-center;
-      }
-
-      .break-elements-onwrap {
-        @apply flex flex-wrap gap-2 break-keep sm:inline;
-      }
-
       .title-text {
-        @apply hover-underline my-10 text-6xl font-semibold;
+        @apply my-10 text-5xl font-semibold;
       }
 
       .name-gradient {
-        @apply bg-gradient-to-br from-pink-600 to-yellow-500 bg-clip-text text-transparent;
+        @apply bg-gradient-to-br from-green-400 to-emerald-600 via-green-600  bg-clip-text text-transparent;
       }
 
       .hover-underline {
         /* display: inline-block; */
-        background-image: linear-gradient(90deg, rgb(253, 100, 49), orange);
-        background-size: 0% 3px;
+        background-image: linear-gradient(
+          90deg,
+          theme("colors.green.600"),
+          green
+        );
+        background-size: 0% 6px;
         background-repeat: no-repeat;
         background-position: left bottom;
 

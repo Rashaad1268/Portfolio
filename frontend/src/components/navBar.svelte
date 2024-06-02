@@ -22,7 +22,7 @@
   });
 </script>
 
-<nav
+<header
 class="sticky left-0 right-0 top-0 z-[9999] h-[var(--navbar-height)] bg-discordDark-830"
 >
     <div class="max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -55,4 +55,4 @@ class="sticky left-0 right-0 top-0 z-[9999] h-[var(--navbar-height)] bg-discordD
         </div>
       </div>
     </div>
-  </nav>
+  </header>
