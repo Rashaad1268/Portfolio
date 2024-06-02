@@ -1,0 +1,36 @@
+@import "./text.scss";
+
+:root {
+	--navbar-height: 64px;
+    --background-color: theme("colors.discordDark.800");
+
+    --max-h: calc(100vh - var(--navbar-height));
+}
+
+html {
+    display: block;
+    font-size: 14px;
+    height: 100%;
+
+    @media (min-width: 1024px) {
+        font-size: 16px;
+    }
+}
+
+body {
+    max-height: var(--max-h);
+    min-height: var(--max-h);
+    height: 100%;
+}
+
+// Theme
+
+html {
+	@apply text-gray-100;
+
+    background-color: var(--background-color);
+}
+
+.max-h-no-nav {
+    max-height: var(--max-h);
+}

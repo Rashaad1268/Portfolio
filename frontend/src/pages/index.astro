@@ -1,11 +1,9 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import NavBar from "../components/navBar.svelte";
+import NavBar from "../components/navbar.svelte";
 import Footer from "../components/footer.svelte";
+import BackgroundGrid from "../components/backgroundGrid.svelte";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import ProjectsGrid from "../components/projectsGrid.svelte";
-import SportsSection from "../components/sportsSection.svelte";
-import TechnologiesGrid from "../components/technologiesGrid.svelte";
 ---
 
 <!doctype html>
@@ -13,53 +11,33 @@ import TechnologiesGrid from "../components/technologiesGrid.svelte";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body class="">
     <NavBar client:load />
-    <div class="section mt-5" id="intro">
-      <div class="img-section">
-        <div>
-          <span class="hover-underline break-elements-onwrap text-6xl">
-            <span class="name-gradient font-semibold">Rashaad</span>
-             is the name
-          </span>
-          <p class="my-2 text-3xl">
-            I'm ahead of my <span
-              class="bg-gradient-to-r from-cyan-500 to-sky-500 bg-clip-text font-bold text-transparent"
-              >game</span
-            >
-          </p>
-        </div>
+    <!-- <div class="snap-mandatory snap-y h-screen overflow-y-scroll"> -->
 
-        <img
-          src="/my_photo.jpeg"
-          alt="A pic of me"
-          draggable="false"
-          class="w-64 rounded-md object-contain md:ml-auto"
-        />
+    <div class="relative w-screen max-h-no-nav h-full">
+      <div class="max-h-full overflow-hidden max-w-full absolute">
+        <BackgroundGrid client:load />
       </div>
-    </div>
 
-    <div class="section" id="projects">
-      <h1 class="title-text" id="projects">Projects</h1>
-      <ProjectsGrid client:only="svelte" />
-    </div>
-
-    <div class="section" id="technologies">
-      <h1 class="title-text">Technologies I know</h1>
-
-      <TechnologiesGrid client:load />
-    </div>
-
-    <div class="section" id="sports">
-      <h1 class="title-text">Sports</h1>
-      <SportsSection client:load />
+      <!-- <div class="overflow-y-scroll max-h-no-nav h-full"> -->
+        <div class="absolute max-h-no-nav overflow-y-scroll h-screen w-full snap-mandatory snap-y">
+          <!-- <div class=""> -->
+          <div class="section max-h-no-nav"></div>
+          <div class="section max-h-no-nav"></div>
+          <div class="section max-h-no-nav"></div>
+          <!-- </div> -->
+        </div>
+      <!-- </div> -->
     </div>
 
     <Footer client:load />
 
     <style>
       .section {
-        @apply mx-5 flex min-h-[85vh] flex-col items-start rounded-lg sm:mx-10 lg:mx-20;
+        scroll-snap-align: start;
+
+        @apply px-5 flex h-full pt-[var(--navbar-height)] flex-col items-start sm:px-10 lg:px-20;
       }
 
       .img-section {

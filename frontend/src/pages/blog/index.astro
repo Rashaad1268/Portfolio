@@ -3,7 +3,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/footer.svelte";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
-import NavBar from "../../components/navBar.svelte";
+import NavBar from "../../components/navbar.svelte";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
