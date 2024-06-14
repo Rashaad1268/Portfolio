@@ -28,7 +28,7 @@ import Ping from "../components/ping.astro";
       );
 
       const targetElements = document.querySelectorAll("[data-enter]");
-      targetElements.forEach((elem) => observer.observe(elem))
+      targetElements.forEach((elem) => observer.observe(elem));
     </script>
   </head>
   <body>
@@ -55,14 +55,10 @@ import Ping from "../components/ping.astro";
       </section>
     </div>
 
-    <section
-    class="fade-in-top"data-enter="faded-in-top" >
-      <h1
-        class="title-text  w-min hover-underline"
-        
-      >
-        Projects
-      </h1>
+    <section>
+      <div class="title-text w-min fade-in-top" data-enter="faded-in-top">
+        <h1 class="hover-underline">Projects</h1>
+      </div>
     </section>
 
     <Footer />
@@ -80,12 +76,14 @@ import Ping from "../components/ping.astro";
       }
 
       .hover-underline {
+        --underline-width: 4px;
+
         background-image: linear-gradient(
           90deg,
           theme("colors.green.600"),
           green
         );
-        background-size: 0% 6px;
+        background-size: 0% var(--underline-width);
         background-repeat: no-repeat;
         background-position: left bottom;
 
@@ -94,7 +92,7 @@ import Ping from "../components/ping.astro";
 
       @media screen(sm) {
         .hover-underline:hover {
-          background-size: 100% 3px;
+          background-size: 100% var(--underline-width);
         }
       }
     </style>

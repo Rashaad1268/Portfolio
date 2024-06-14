@@ -2,11 +2,11 @@
     import { onMount } from "svelte";
     import NavTitle from "./navTitle.svelte";
     import { slide } from "svelte/transition";
-  
+
     const navigation = [
       { name: "Blog", href: "/blog" },
     ];
-  
+
     let win: Window;
   
     function classNames(...classes: string[]) {
