@@ -13,22 +13,29 @@ import Ping from "../components/ping.astro";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 
     <script>
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const animationClass = entry.target.dataset.enter;
-            if (entry.isIntersecting) {
-              entry.target.classList.add(animationClass);
-            } else {
-              entry.target.classList.remove(animationClass);
-            }
-          });
-        },
-        { threshold: 0.35 }
-      );
+      function scrollAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const animationClass = entry.target.dataset.enter;
+              if (entry.isIntersecting) {
+                entry.target.classList.add(animationClass);
+              } else {
+                entry.target.classList.remove(animationClass);
+              }
+            });
+          },
+          { threshold: 0.35 },
+        );
 
-      const targetElements = document.querySelectorAll("[data-enter]");
-      targetElements.forEach((elem) => observer.observe(elem));
+        const targetElements = document.querySelectorAll("[data-enter]");
+        targetElements.forEach((elem) => observer.observe(elem));
+      }
+
+      scrollAnimations();
+
+      // This line is needed so the animations work after navigating back to the page
+      document.addEventListener("astro:after-swap", scrollAnimations);
     </script>
   </head>
   <body>
@@ -38,20 +45,23 @@ import Ping from "../components/ping.astro";
       <BackgroundGrid client:load />
 
       <section
-        class="absolute fade-in-top items-center text-center mt-36"
+        class="absolute fade-in-top items-center text-center"
         data-enter="faded-in-top"
       >
-        <h1 class="font-monocraft text-center title-text name-gradient !my-4">
-          Rashaad is the name
-        </h1>
-        <h2 class="text-lg sm:text-2xl font-monocraft mx-10 text-balance">
-          May or may not be known as <span
-            class="font-doodle text-green-500 hover-underline">Slim Shady</span
-          >
-           or <span class="font-doodle hover-underline text-green-500"
-            >Batman</span
-          >
-        </h2>
+        <div class="mt-36">
+          <h1 class="font-monocraft text-center title-text name-gradient !my-4">
+            Rashaad is the name
+          </h1>
+          <h2 class="text-lg sm:text-2xl font-monocraft mx-10 text-balance">
+            May or may not be known as <span
+              class="font-doodle text-green-500 hover-underline"
+              >Slim Shady</span
+            >
+             or <span class="font-doodle hover-underline text-green-500"
+              >Batman</span
+            >
+          </h2>
+        </div>
       </section>
     </div>
 
