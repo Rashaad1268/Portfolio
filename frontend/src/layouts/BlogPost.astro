@@ -15,10 +15,8 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     <BaseHead title={title} description={description} />
     <style>
       main {
-
-        width: calc(100% - 2em);
+        @apply px-8;
         max-width: 100%;
-        margin: 0;
       }
       .hero-image {
         width: 100%;
@@ -50,7 +48,7 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 
   <body>
     <NavBar client:load />
-    <main class="flex justify-center min-h-screen pb-32">
+    <main class="flex justify-center min-h-screen w-full pb-32">
       <article>
         <div class="prose prose-invert max-w-screen-lg">
           <div class="title">
