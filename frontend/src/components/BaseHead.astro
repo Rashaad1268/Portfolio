@@ -5,9 +5,9 @@ import { ViewTransitions } from "astro:transitions";
 import "../styles/global.scss";
 
 interface Props {
-  title: string;
-  description: string;
-  image?: string;
+    title: string;
+    description: string;
+    image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -15,14 +15,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 
 function getRandomImage() {
-  const array = [
-    "/gradients/1.jpg",
-    "/gradients/2.jpg",
-    "/gradients/3.jpg",
-    "/gradients/4.jpg",
-  ]
+    const array = [
+        "/gradients/1.jpg",
+        "/gradients/2.jpg",
+        "/gradients/3.jpg",
+        "/gradients/4.jpg",
+    ];
 
-  return array[Math.floor(Math.random() * array.length)];;
+    return array[Math.floor(Math.random() * array.length)];
 }
 
 const image = getRandomImage();
@@ -36,18 +36,18 @@ const image = getRandomImage();
 
 <!-- Font preloads -->
 <link
-  rel="preload"
-  href="/fonts/Monocraft.ttf"
-  as="font"
-  type="font/ttf"
-  crossorigin
+    rel="preload"
+    href="/fonts/Monocraft.ttf"
+    as="font"
+    type="font/ttf"
+    crossorigin
 />
 <link
-  rel="preload"
-  href="/fonts/RubikDoodleShadow-Regular.ttf"
-  as="font"
-  type="font/ttf"
-  crossorigin
+    rel="preload"
+    href="/fonts/RubikDoodleShadow-Regular.ttf"
+    as="font"
+    type="font/ttf"
+    crossorigin
 />
 
 <!-- Canonical URL -->
@@ -73,3 +73,24 @@ const image = getRandomImage();
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <ViewTransitions />
+
+<script>
+    const secretQueryParam = "specialEdition";
+    (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hasSecretParam = urlParams.get(secretQueryParam) === "true";
+        console.log(hasSecretParam)
+
+        if (hasSecretParam) {
+            urlParams.delete(secretQueryParam);
+            const newUrl = `${window.location.pathname}${
+                urlParams.toString() ? `?${urlParams.toString()}` : ""
+            }`;
+            history.replaceState({}, "", newUrl);
+
+            sessionStorage.showSecretContent = true;
+        } else {
+            sessionStorage.showSecretContent = false;
+        }
+    })();
+</script>
