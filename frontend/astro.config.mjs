@@ -6,9 +6,13 @@ import svelte from "@astrojs/svelte";
 
 import vercelStatic from "@astrojs/vercel/static";
 
+
+const vercelProdUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const deployedUrl =  vercelProdUrl ? `https://${vercelProdUrl}` : 'https://slimshady.biz'
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://slimshady.biz',
+  site: deployedUrl,
   integrations: [mdx(), sitemap(), tailwind(), svelte()],
   output: "static",
   adapter: vercelStatic()
