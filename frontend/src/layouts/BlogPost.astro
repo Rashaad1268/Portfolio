@@ -7,7 +7,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate } = Astro.props;
 ---
 
 <html lang="en">
@@ -50,15 +50,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
   <body>
     <NavBar client:load />
-    <main class="flex justify-center">
+    <main class="flex justify-center min-h-screen pb-32">
       <article>
-        <div class="hero-image">
-          {
-            heroImage && (
-              <img width={1020} height={510} src={heroImage} alt="" />
-            )
-          }
-        </div>
         <div class="prose prose-invert max-w-screen-lg">
           <div class="title">
             <div class="date">
@@ -72,7 +65,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
               }
             </div>
             <h1>{title}</h1>
-            <hr />
+            <hr class="my-6 mb-0" />
           </div>
           <slot />
         </div>

@@ -4,7 +4,7 @@
 	--navbar-height: 64px;
     --background-color: theme("colors.discordDark.800");
 
-    --max-h: calc(100vh - var(--navbar-height));
+    --max-h: calc(100dvh - var(--navbar-height));
 }
 
 html {

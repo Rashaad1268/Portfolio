@@ -30,7 +30,7 @@
 
 <style lang="scss">
   #tiles-wrapper {
-    height: calc(100vh - var(--navbar-height));
+    height: calc(100dvh - var(--navbar-height));
     overflow: hidden;
     width: 100vw;
     max-width: 100%;

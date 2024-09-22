@@ -6,7 +6,7 @@
     },
     "scss.lint.unknownAtRules": "ignore",
     "editor.formatOnSave": true,
-    "prettier.configPath": "../frontend-svelte/.prettierrc",
+    "prettier.configPath": "../frontend/.prettierrc",
 
     "files.exclude": {
         "**/.git": true,
