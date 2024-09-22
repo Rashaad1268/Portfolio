@@ -4,12 +4,12 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
 
-import vercel from "@astrojs/vercel/serverless";
+import vercelStatic from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://slimshady.biz',
   integrations: [mdx(), sitemap(), tailwind(), svelte()],
-  output: "server",
-  adapter: vercel()
+  output: "static",
+  adapter: vercelStatic()
 });
