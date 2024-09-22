@@ -8,7 +8,6 @@ import vercelStatic from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://slimshady.biz',
   integrations: [mdx(), sitemap(), tailwind(), svelte()],
   output: "static",
   adapter: vercelStatic()
