@@ -34,7 +34,7 @@ const posts = (await getCollection("blog")).sort(
                             <li>
                                 <a
                                     href={`/blog/${post.slug}/`}
-                                    class="hover:underline grid grid-cols-4 items-center sm:gap-12 md:gap-32 w-full"
+                                    class="hover-underline grid grid-rows-2 sm:grid-rows-none sm:grid-cols-4 items-center sm:gap-12 md:gap-32 w-full"
                                 >
                                     <h4 class="text-xl font-semibold col-span-3">
                                         {idx+1}. {post.data.title}

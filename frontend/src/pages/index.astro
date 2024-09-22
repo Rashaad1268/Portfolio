@@ -78,27 +78,6 @@ import Ping from "../components/ping.astro";
       .name-gradient {
         @apply bg-gradient-to-br from-green-400 to-emerald-600 via-green-600  bg-clip-text text-transparent;
       }
-
-      .hover-underline {
-        --underline-width: 4px;
-
-        background-image: linear-gradient(
-          90deg,
-          theme("colors.green.600"),
-          green
-        );
-        background-size: 0% var(--underline-width);
-        background-repeat: no-repeat;
-        background-position: left bottom;
-
-        transition: background-size 400ms ease;
-      }
-
-      @media screen(sm) {
-        .hover-underline:hover {
-          background-size: 100% var(--underline-width);
-        }
-      }
     </style>
   </body>
 </html>
